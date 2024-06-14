@@ -8,7 +8,9 @@ entity NIterator is
 		init : in STD_LOGIC;
 		clk : in STD_LOGIC;
 		reset : in STD_LOGIC;
+		--external_reset : in STD_LOGIC;
 		
+		--internal_reset : out STD_LOGIC;
 		count : out STD_LOGIC_VECTOR (7 downto 0);
 		preemp_done : out STD_LOGIC;
 		done : out STD_LOGIC

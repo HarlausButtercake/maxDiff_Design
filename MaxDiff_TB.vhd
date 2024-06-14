@@ -51,6 +51,21 @@ begin
         wait for CLOCK_PERIOD;
 		  wait for CLOCK_PERIOD;
 		  wait for CLOCK_PERIOD;
+        wait for CLOCK_PERIOD;
+		  wait for CLOCK_PERIOD;
+		  wait for CLOCK_PERIOD;
+        wait for CLOCK_PERIOD;
+		  wait for CLOCK_PERIOD;
+		  wait for CLOCK_PERIOD;
+		  start <= '0';
+		  wait for CLOCK_PERIOD;
+		  wait for CLOCK_PERIOD;
+		  wait for CLOCK_PERIOD;
+		  
+		  
+		  
+		  reset <= '1';
+        reset <= '0';
 		  wait for CLOCK_PERIOD;
 		  wait for CLOCK_PERIOD;
 		  wait for CLOCK_PERIOD;

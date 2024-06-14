@@ -20,9 +20,7 @@ clk => DiffBehave:CalDiff.clk
 clk => ControlUnit:Control.clk
 clk => DataHandler:Interface.clk
 clk => MemModule:Mem.clk
-reset => DiffBehave:CalDiff.reset
-reset => ControlUnit:Control.reset
-reset => DataHandler:Interface.reset
+reset => ControlUnit:Control.external_reset
 debug_Diff[0] << DiffBehave:CalDiff.Diff[0]
 debug_Diff[1] << DiffBehave:CalDiff.Diff[1]
 debug_Diff[2] << DiffBehave:CalDiff.Diff[2]
@@ -150,11 +148,11 @@ Diff[7] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 |MaxDiff|ControlUnit:Control
 start => readSig.IN1
 start => go_init.IN0
+start => inter_reset.IN0
 clk => NIterator:NI.clk
 clk => done_actual~reg0.CLK
 Diff_loaded => go_init.IN1
-reset => NIterator:NI.reset
-reset => done_actual~reg0.ACLR
+external_reset => inter_reset.IN1
 N_i[0] => NIterator:NI.N_i[0]
 N_i[1] => NIterator:NI.N_i[1]
 N_i[2] => NIterator:NI.N_i[2]
@@ -163,6 +161,7 @@ N_i[4] => NIterator:NI.N_i[4]
 N_i[5] => NIterator:NI.N_i[5]
 N_i[6] => NIterator:NI.N_i[6]
 N_i[7] => NIterator:NI.N_i[7]
+internal_reset <= inter_reset.DB_MAX_OUTPUT_PORT_TYPE
 done_actual <= done_actual~reg0.DB_MAX_OUTPUT_PORT_TYPE
 count[0] <= NIterator:NI.count[0]
 count[1] <= NIterator:NI.count[1]

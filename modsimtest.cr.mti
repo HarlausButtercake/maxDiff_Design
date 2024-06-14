@@ -7,14 +7,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity MaxDiff
 -- Compiling architecture Behavioral of MaxDiff
 
-} {} {}} D:/proj_clone/maxDiff/DataHandler.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/proj_clone/maxDiff/DataHandler.vhd
+} {} {}} D:/proj_clone/maxDiff/NIterator.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/proj_clone/maxDiff/NIterator.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity DataHandler
--- Compiling architecture Behavioral of DataHandler
+-- Compiling entity NIterator
+-- Compiling architecture Behavioral of NIterator
 
 } {} {}} D:/proj_clone/maxDiff/DiffBehave.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/proj_clone/maxDiff/DiffBehave.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -25,33 +25,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Compiling entity DiffBehave
 -- Compiling architecture Behavioral of DiffBehave
 
-} {} {}} D:/proj_clone/maxDiff/NIterator.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/proj_clone/maxDiff/NIterator.vhd
+} {} {}} D:/proj_clone/maxDiff/DataHandler.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/proj_clone/maxDiff/DataHandler.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
 -- Loading package STANDARD
 -- Loading package TEXTIO
 -- Loading package std_logic_1164
 -- Loading package NUMERIC_STD
--- Compiling entity NIterator
--- Compiling architecture Behavioral of NIterator
-
-} {} {}} D:/proj_clone/maxDiff/MaxDiff_TB.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/proj_clone/maxDiff/MaxDiff_TB.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity MaxDiff_TB
--- Compiling architecture TB_ARCH of MaxDiff_TB
--- Loading entity MaxDiff
-
-} {} {}} D:/proj_clone/maxDiff/MemModule.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/proj_clone/maxDiff/MemModule.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Loading package NUMERIC_STD
--- Compiling entity MemModule
--- Compiling architecture Behavioral of MemModule
+-- Compiling entity DataHandler
+-- Compiling architecture Behavioral of DataHandler
 
 } {} {}} D:/proj_clone/maxDiff/ControlUnit.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/proj_clone/maxDiff/ControlUnit.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
@@ -61,5 +42,14 @@ Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  
 -- Loading package NUMERIC_STD
 -- Compiling entity ControlUnit
 -- Compiling architecture Behavioral of ControlUnit
+
+} {} {}} D:/proj_clone/maxDiff/MemModule.vhd {1 {vcom -work work -2002 -explicit -stats=none D:/proj_clone/maxDiff/MemModule.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity MemModule
+-- Compiling architecture Behavioral of MemModule
 
 } {} {}}
