@@ -1,0 +1,298 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dD:/modsim
+Econtrolunit
+Z0 w1718375847
+Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z4 dD:/proj_clone/maxDiff
+Z5 8D:/proj_clone/maxDiff/ControlUnit.vhd
+Z6 FD:/proj_clone/maxDiff/ControlUnit.vhd
+l0
+L5
+V=ibjN<a2VnaYOG@8USGM>1
+!s100 `:`F]gW7PB3HT2`l51C<Z2
+Z7 OV;C;10.5b;63
+32
+Z8 !s110 1718378208
+!i10b 1
+Z9 !s108 1718378208.000000
+Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/proj_clone/maxDiff/ControlUnit.vhd|
+Z11 !s107 D:/proj_clone/maxDiff/ControlUnit.vhd|
+!i113 1
+Z12 o-work work -2002 -explicit
+Z13 tExplicit 1 CvgOpt 0
+Abehavioral
+R1
+R2
+R3
+DEx4 work 11 controlunit 0 22 =ibjN<a2VnaYOG@8USGM>1
+l38
+L21
+V:lMMWb@EQk>lbOCaYBzj>1
+!s100 jO97<nTi9RzRIZf7S0mdR0
+R7
+32
+R8
+!i10b 1
+R9
+R10
+R11
+!i113 1
+R12
+R13
+Edatahandler
+Z14 w1718305576
+R1
+R2
+R3
+R4
+Z15 8D:/proj_clone/maxDiff/DataHandler.vhd
+Z16 FD:/proj_clone/maxDiff/DataHandler.vhd
+l0
+L5
+V<=:;7Zb8lPF[KQFAiB=iU3
+!s100 ?6i:GXAe6cn8dh;PU2a`b2
+R7
+32
+R8
+!i10b 1
+R9
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/proj_clone/maxDiff/DataHandler.vhd|
+Z18 !s107 D:/proj_clone/maxDiff/DataHandler.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R1
+R2
+R3
+DEx4 work 11 datahandler 0 22 <=:;7Zb8lPF[KQFAiB=iU3
+l33
+L29
+V[l<eOQKMW>USeKH8Og<=B1
+!s100 F0ehJ5[8N40HYmib9_5zW2
+R7
+32
+R8
+!i10b 1
+R9
+R17
+R18
+!i113 1
+R12
+R13
+Ediffbehave
+Z19 w1718305427
+R1
+R2
+R3
+R4
+Z20 8D:/proj_clone/maxDiff/DiffBehave.vhd
+Z21 FD:/proj_clone/maxDiff/DiffBehave.vhd
+l0
+L5
+Vh4h]F6leEVT[VaoJgDR7X3
+!s100 Z:a??`FPaCSfTM]5O6ifV3
+R7
+32
+R8
+!i10b 1
+R9
+Z22 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/proj_clone/maxDiff/DiffBehave.vhd|
+Z23 !s107 D:/proj_clone/maxDiff/DiffBehave.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R1
+R2
+R3
+DEx4 work 10 diffbehave 0 22 h4h]F6leEVT[VaoJgDR7X3
+l22
+L17
+VD9MHc6mMn7;b^G5QZbOoe0
+!s100 dTo9zW<eN5WaQd6@bm_Y=0
+R7
+32
+R8
+!i10b 1
+R9
+R22
+R23
+!i113 1
+R12
+R13
+Emaxdiff
+Z24 w1718302635
+R1
+R2
+R3
+R4
+Z25 8D:/proj_clone/maxDiff/MaxDiff.vhd
+Z26 FD:/proj_clone/maxDiff/MaxDiff.vhd
+l0
+L5
+V=RHcMZge?3]:h3O?gOJBR2
+!s100 BhC`8UH2zC_:4jOAZ2^h11
+R7
+32
+R8
+!i10b 1
+R9
+Z27 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/proj_clone/maxDiff/MaxDiff.vhd|
+Z28 !s107 D:/proj_clone/maxDiff/MaxDiff.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R1
+R2
+R3
+Z29 DEx4 work 7 maxdiff 0 22 =RHcMZge?3]:h3O?gOJBR2
+l92
+L22
+V5BJ5AnII3Od?>@PQf>PIb3
+!s100 C^bc3Hd]lABialLYY[Ikh0
+R7
+32
+R8
+!i10b 1
+R9
+R27
+R28
+!i113 1
+R12
+R13
+Emaxdiff_tb
+Z30 w1718378103
+R1
+R2
+R3
+R4
+Z31 8D:/proj_clone/maxDiff/MaxDiff_TB.vhd
+Z32 FD:/proj_clone/maxDiff/MaxDiff_TB.vhd
+l0
+L5
+VZ9e8BFYK;g5ZP5=f3dCkh2
+!s100 6PKX;Z3TiK;hX1k<dnTa01
+R7
+32
+R8
+!i10b 1
+R9
+Z33 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/proj_clone/maxDiff/MaxDiff_TB.vhd|
+Z34 !s107 D:/proj_clone/maxDiff/MaxDiff_TB.vhd|
+!i113 1
+R12
+R13
+Atb_arch
+R29
+R1
+R2
+R3
+DEx4 work 10 maxdiff_tb 0 22 Z9e8BFYK;g5ZP5=f3dCkh2
+l23
+L8
+VigdEX<d29J0CbTI]B70bO3
+!s100 4Oik0Gez5hJ5FhZ]oc1UG2
+R7
+32
+R8
+!i10b 1
+R9
+R33
+R34
+!i113 1
+R12
+R13
+Ememmodule
+Z35 w1718378193
+R1
+R2
+R3
+R4
+Z36 8D:/proj_clone/maxDiff/MemModule.vhd
+Z37 FD:/proj_clone/maxDiff/MemModule.vhd
+l0
+L5
+V_z_Fe;2D<h3c^^Gb2[1kR3
+!s100 6PN4k0m@6V879KKbYJcC62
+R7
+32
+Z38 !s110 1718378209
+!i10b 1
+R9
+Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/proj_clone/maxDiff/MemModule.vhd|
+Z40 !s107 D:/proj_clone/maxDiff/MemModule.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R1
+R2
+R3
+Z41 DEx4 work 9 memmodule 0 22 _z_Fe;2D<h3c^^Gb2[1kR3
+l38
+L20
+VdfEST?82z5;aXg7h@5d4e2
+!s100 zom>[FfO^G9bCS7?fYjce0
+R7
+32
+R38
+!i10b 1
+R9
+R39
+R40
+!i113 1
+R12
+R13
+Eniterator
+Z42 w1718377338
+R1
+R2
+R3
+R4
+Z43 8D:/proj_clone/maxDiff/NIterator.vhd
+Z44 FD:/proj_clone/maxDiff/NIterator.vhd
+l0
+L5
+VT6iVmOFQ:KNM1TiiPIZ8E3
+!s100 ZeeE`X9V1icUzc72F3T<N2
+R7
+32
+R8
+!i10b 1
+R9
+Z45 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/proj_clone/maxDiff/NIterator.vhd|
+Z46 !s107 D:/proj_clone/maxDiff/NIterator.vhd|
+!i113 1
+R12
+R13
+Abehavioral
+R1
+R2
+R3
+DEx4 work 9 niterator 0 22 T6iVmOFQ:KNM1TiiPIZ8E3
+l21
+L18
+VEbH70aLce]T6zJeZEWic=2
+!s100 8H9DIz2RE=ASd]ZRh;[bQ0
+R7
+32
+R8
+!i10b 1
+R9
+R45
+R46
+!i113 1
+R12
+R13
