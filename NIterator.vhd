@@ -44,6 +44,6 @@ architecture Behavioral of NIterator is
 		 end process;
 		 count <= STD_LOGIC_VECTOR(count_reg) when count_reg <= UNSIGNED(N_i);
 		 preemp_done <= '1' when (count_reg >= UNSIGNED(N_i)) else '0'; --over here aswell
-		 done <= '1' when (count_reg >= UNSIGNED(N_i) + 1) else '0'; --over here aswell
+		 done <= '1' when (count_reg >= UNSIGNED(N_i) + 2) else '0'; --over here aswell
 		
 end Behavioral;

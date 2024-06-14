@@ -13,6 +13,7 @@ entity ControlUnit is
 			
 			 internal_reset : out STD_LOGIC;
 			 done_actual : out STD_LOGIC;
+			 debug_done_ni : out STD_LOGIC;
 			 count : out STD_LOGIC_VECTOR (7 downto 0);
 			 init : out STD_LOGIC;
 			 readSig : out STD_LOGIC;
@@ -34,12 +35,12 @@ architecture Behavioral of ControlUnit is
 			done : out STD_LOGIC
 		);
 	end component;
-	 signal  go_init, done_NI, read_buf, doneRead, inter_reset : STD_LOGIC;
+	 signal  go_init, done_NI, read_buf, doneRead, inter_reset, done_buf, done_actual_buf : STD_LOGIC;
 	 --signal  read_buf : STD_LOGIC := '0';
 	 
 begin
 
-	writeSig <= done_NI;
+	
 	readSig <= start and (not doneRead);
 	inter_reset <= (not start) or external_reset;
 	internal_reset <= inter_reset;
@@ -49,16 +50,18 @@ begin
 	process(clk, inter_reset)
 		 begin
 			  if inter_reset = '1' then
-					done_actual <= '0';
+					done_buf <= '0';
 					
 			  elsif rising_edge(clk) then
-					done_actual <= done_NI;
+					done_buf <= done_NI;
+					
 			  end if;
 			  
 		 end process;
-	
-	
-	
+		 --done_actual_buf <= done_buf;
+		done_actual <= done_buf;
+		debug_done_ni <= done_NI;
+		writeSig <= done_NI and start and (not done_buf);
     NI: NIterator port map( N_i, go_init, clk, inter_reset, count, doneRead, done_NI);
 	 
 	 

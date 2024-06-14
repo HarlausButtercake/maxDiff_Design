@@ -1,5 +1,5 @@
 Flow report for MaxDiff
-Fri Jun 14 22:57:19 2024
+Sat Jun 15 00:26:04 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -41,13 +41,13 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------------+
 ; Flow Summary                                                           ;
 +-----------------------+------------------------------------------------+
-; Flow Status           ; Successful - Fri Jun 14 22:57:19 2024          ;
+; Flow Status           ; Successful - Sat Jun 15 00:26:04 2024          ;
 ; Quartus Prime Version ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name         ; MaxDiff                                        ;
-; Top-level Entity Name ; MaxDiff                                        ;
+; Top-level Entity Name ; MaxDiff_woMem                                  ;
 ; Family                ; MAX V                                          ;
-; Total logic elements  ; 3,827                                          ;
-; Total pins            ; 44                                             ;
+; Total logic elements  ; 128                                            ;
+; Total pins            ; 47                                             ;
 ; Total virtual pins    ; 0                                              ;
 ; UFM blocks            ; 0 / 1 ( 0 % )                                  ;
 +-----------------------+------------------------------------------------+
@@ -58,7 +58,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/14/2024 22:57:10 ;
+; Start date & time ; 06/15/2024 00:25:56 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; MaxDiff             ;
 +-------------------+---------------------+
@@ -69,8 +69,9 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------+---------------------------------+---------------+-------------+------------+
 ; Assignment Name          ; Value                           ; Default Value ; Entity Name ; Section Id ;
 +--------------------------+---------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID    ; 269178622495222.171838063001556 ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID    ; 269178622495222.171838595601540 ; --            ; --          ; --         ;
 ; PROJECT_OUTPUT_DIRECTORY ; output_files                    ; --            ; --          ; --         ;
+; TOP_LEVEL_ENTITY         ; MaxDiff_woMem                   ; MaxDiff       ; --          ; --         ;
 +--------------------------+---------------------------------+---------------+-------------+------------+
 
 
@@ -79,8 +80,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:09     ; 1.0                     ; 4784 MB             ; 00:00:20                           ;
-; Total                ; 00:00:09     ; --                      ; --                  ; 00:00:20                           ;
+; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4766 MB             ; 00:00:20                           ;
+; Total                ; 00:00:08     ; --                      ; --                  ; 00:00:20                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

@@ -1,9 +1,9 @@
-Analysis & Synthesis Status : Successful - Fri Jun 14 22:57:19 2024
+Analysis & Synthesis Status : Successful - Sat Jun 15 00:26:04 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : MaxDiff
-Top-level Entity Name : MaxDiff
+Top-level Entity Name : MaxDiff_woMem
 Family : MAX V
-Total logic elements : 3,827
-Total pins : 44
+Total logic elements : 128
+Total pins : 47
 Total virtual pins : 0
 UFM blocks : 0 / 1 ( 0 % )

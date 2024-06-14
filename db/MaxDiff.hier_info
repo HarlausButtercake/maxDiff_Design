@@ -1,4 +1,4 @@
-|MaxDiff
+|MaxDiff_woMem
 start => ControlUnit:Control.start
 N_i[0] => ControlUnit:Control.N_i[0]
 N_i[1] => ControlUnit:Control.N_i[1]
@@ -19,36 +19,38 @@ addr[7] => DataHandler:Interface.addr0[7]
 clk => DiffBehave:CalDiff.clk
 clk => ControlUnit:Control.clk
 clk => DataHandler:Interface.clk
-clk => MemModule:Mem.clk
 reset => ControlUnit:Control.external_reset
-debug_Diff[0] << DiffBehave:CalDiff.Diff[0]
-debug_Diff[1] << DiffBehave:CalDiff.Diff[1]
-debug_Diff[2] << DiffBehave:CalDiff.Diff[2]
-debug_Diff[3] << DiffBehave:CalDiff.Diff[3]
-debug_Diff[4] << DiffBehave:CalDiff.Diff[4]
-debug_Diff[5] << DiffBehave:CalDiff.Diff[5]
-debug_Diff[6] << DiffBehave:CalDiff.Diff[6]
-debug_Diff[7] << DiffBehave:CalDiff.Diff[7]
-debug_data_fetched[0] << DataHandler:Interface.data_fetched[0]
-debug_data_fetched[1] << DataHandler:Interface.data_fetched[1]
-debug_data_fetched[2] << DataHandler:Interface.data_fetched[2]
-debug_data_fetched[3] << DataHandler:Interface.data_fetched[3]
-debug_data_fetched[4] << DataHandler:Interface.data_fetched[4]
-debug_data_fetched[5] << DataHandler:Interface.data_fetched[5]
-debug_data_fetched[6] << DataHandler:Interface.data_fetched[6]
-debug_data_fetched[7] << DataHandler:Interface.data_fetched[7]
-debug_count[0] << ControlUnit:Control.count[0]
-debug_count[1] << ControlUnit:Control.count[1]
-debug_count[2] << ControlUnit:Control.count[2]
-debug_count[3] << ControlUnit:Control.count[3]
-debug_count[4] << ControlUnit:Control.count[4]
-debug_count[5] << ControlUnit:Control.count[5]
-debug_count[6] << ControlUnit:Control.count[6]
-debug_count[7] << ControlUnit:Control.count[7]
-done << ControlUnit:Control.done_actual
+data_from_mem[0] => DataHandler:Interface.mem_data_from_mem[0]
+data_from_mem[1] => DataHandler:Interface.mem_data_from_mem[1]
+data_from_mem[2] => DataHandler:Interface.mem_data_from_mem[2]
+data_from_mem[3] => DataHandler:Interface.mem_data_from_mem[3]
+data_from_mem[4] => DataHandler:Interface.mem_data_from_mem[4]
+data_from_mem[5] => DataHandler:Interface.mem_data_from_mem[5]
+data_from_mem[6] => DataHandler:Interface.mem_data_from_mem[6]
+data_from_mem[7] => DataHandler:Interface.mem_data_from_mem[7]
+data_to_mem[0] <= DataHandler:Interface.mem_data_to_mem[0]
+data_to_mem[1] <= DataHandler:Interface.mem_data_to_mem[1]
+data_to_mem[2] <= DataHandler:Interface.mem_data_to_mem[2]
+data_to_mem[3] <= DataHandler:Interface.mem_data_to_mem[3]
+data_to_mem[4] <= DataHandler:Interface.mem_data_to_mem[4]
+data_to_mem[5] <= DataHandler:Interface.mem_data_to_mem[5]
+data_to_mem[6] <= DataHandler:Interface.mem_data_to_mem[6]
+data_to_mem[7] <= DataHandler:Interface.mem_data_to_mem[7]
+addr_mem[0] <= DataHandler:Interface.mem_cur_addr[0]
+addr_mem[1] <= DataHandler:Interface.mem_cur_addr[1]
+addr_mem[2] <= DataHandler:Interface.mem_cur_addr[2]
+addr_mem[3] <= DataHandler:Interface.mem_cur_addr[3]
+addr_mem[4] <= DataHandler:Interface.mem_cur_addr[4]
+addr_mem[5] <= DataHandler:Interface.mem_cur_addr[5]
+addr_mem[6] <= DataHandler:Interface.mem_cur_addr[6]
+addr_mem[7] <= DataHandler:Interface.mem_cur_addr[7]
+REn <= DataHandler:Interface.REn
+WEn <= DataHandler:Interface.WEn
+debug_ni <= ControlUnit:Control.debug_done_ni
+done <= ControlUnit:Control.done_actual
 
 
-|MaxDiff|DiffBehave:CalDiff
+|MaxDiff_woMem|DiffBehave:CalDiff
 clk => init_reg.CLK
 clk => Diff_loaded~reg0.CLK
 clk => max[0].CLK
@@ -145,12 +147,13 @@ Diff[6] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 Diff[7] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MaxDiff|ControlUnit:Control
+|MaxDiff_woMem|ControlUnit:Control
 start => readSig.IN1
 start => go_init.IN0
+start => writeSig.IN1
 start => inter_reset.IN0
 clk => NIterator:NI.clk
-clk => done_actual~reg0.CLK
+clk => done_buf.CLK
 Diff_loaded => go_init.IN1
 external_reset => inter_reset.IN1
 N_i[0] => NIterator:NI.N_i[0]
@@ -162,7 +165,8 @@ N_i[5] => NIterator:NI.N_i[5]
 N_i[6] => NIterator:NI.N_i[6]
 N_i[7] => NIterator:NI.N_i[7]
 internal_reset <= inter_reset.DB_MAX_OUTPUT_PORT_TYPE
-done_actual <= done_actual~reg0.DB_MAX_OUTPUT_PORT_TYPE
+done_actual <= done_buf.DB_MAX_OUTPUT_PORT_TYPE
+debug_done_ni <= NIterator:NI.done
 count[0] <= NIterator:NI.count[0]
 count[1] <= NIterator:NI.count[1]
 count[2] <= NIterator:NI.count[2]
@@ -173,34 +177,42 @@ count[6] <= NIterator:NI.count[6]
 count[7] <= NIterator:NI.count[7]
 init <= go_init.DB_MAX_OUTPUT_PORT_TYPE
 readSig <= readSig.DB_MAX_OUTPUT_PORT_TYPE
-writeSig <= NIterator:NI.done
+writeSig <= writeSig.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MaxDiff|ControlUnit:Control|NIterator:NI
+|MaxDiff_woMem|ControlUnit:Control|NIterator:NI
+N_i[0] => Add0.IN16
 N_i[0] => LessThan1.IN8
 N_i[0] => LessThan2.IN8
-N_i[0] => Add1.IN16
+N_i[0] => LessThan3.IN8
+N_i[1] => Add0.IN15
 N_i[1] => LessThan1.IN7
 N_i[1] => LessThan2.IN7
-N_i[1] => Add1.IN15
+N_i[1] => Add2.IN14
+N_i[2] => Add0.IN14
 N_i[2] => LessThan1.IN6
 N_i[2] => LessThan2.IN6
-N_i[2] => Add1.IN14
+N_i[2] => Add2.IN13
+N_i[3] => Add0.IN13
 N_i[3] => LessThan1.IN5
 N_i[3] => LessThan2.IN5
-N_i[3] => Add1.IN13
+N_i[3] => Add2.IN12
+N_i[4] => Add0.IN12
 N_i[4] => LessThan1.IN4
 N_i[4] => LessThan2.IN4
-N_i[4] => Add1.IN12
+N_i[4] => Add2.IN11
+N_i[5] => Add0.IN11
 N_i[5] => LessThan1.IN3
 N_i[5] => LessThan2.IN3
-N_i[5] => Add1.IN11
+N_i[5] => Add2.IN10
+N_i[6] => Add0.IN10
 N_i[6] => LessThan1.IN2
 N_i[6] => LessThan2.IN2
-N_i[6] => Add1.IN10
+N_i[6] => Add2.IN9
+N_i[7] => Add0.IN9
 N_i[7] => LessThan1.IN1
 N_i[7] => LessThan2.IN1
-N_i[7] => Add1.IN9
+N_i[7] => Add2.IN8
 init => count_reg.OUTPUTSELECT
 init => count_reg.OUTPUTSELECT
 init => count_reg.OUTPUTSELECT
@@ -237,7 +249,7 @@ preemp_done <= LessThan2.DB_MAX_OUTPUT_PORT_TYPE
 done <= LessThan3.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|MaxDiff|DataHandler:Interface
+|MaxDiff_woMem|DataHandler:Interface
 clk => mem_cur_addr[0]~reg0.CLK
 clk => mem_cur_addr[1]~reg0.CLK
 clk => mem_cur_addr[2]~reg0.CLK
@@ -358,100 +370,5 @@ data_fetched[4] <= mem_data_from_mem[4].DB_MAX_OUTPUT_PORT_TYPE
 data_fetched[5] <= mem_data_from_mem[5].DB_MAX_OUTPUT_PORT_TYPE
 data_fetched[6] <= mem_data_from_mem[6].DB_MAX_OUTPUT_PORT_TYPE
 data_fetched[7] <= mem_data_from_mem[7].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|MaxDiff|MemModule:Mem
-clk => mem~16.CLK
-clk => mem~0.CLK
-clk => mem~1.CLK
-clk => mem~2.CLK
-clk => mem~3.CLK
-clk => mem~4.CLK
-clk => mem~5.CLK
-clk => mem~6.CLK
-clk => mem~7.CLK
-clk => mem~8.CLK
-clk => mem~9.CLK
-clk => mem~10.CLK
-clk => mem~11.CLK
-clk => mem~12.CLK
-clk => mem~13.CLK
-clk => mem~14.CLK
-clk => mem~15.CLK
-clk => read_data[0].CLK
-clk => read_data[0]~en.CLK
-clk => read_data[1].CLK
-clk => read_data[1]~en.CLK
-clk => read_data[2].CLK
-clk => read_data[2]~en.CLK
-clk => read_data[3].CLK
-clk => read_data[3]~en.CLK
-clk => read_data[4].CLK
-clk => read_data[4]~en.CLK
-clk => read_data[5].CLK
-clk => read_data[5]~en.CLK
-clk => read_data[6].CLK
-clk => read_data[6]~en.CLK
-clk => read_data[7].CLK
-clk => read_data[7]~en.CLK
-clk => mem.CLK0
-WEn => mem~16.DATAIN
-WEn => mem.WE
-REn => read_data[0]~en.DATAIN
-REn => read_data[1]~en.DATAIN
-REn => read_data[2]~en.DATAIN
-REn => read_data[3]~en.DATAIN
-REn => read_data[4]~en.DATAIN
-REn => read_data[5]~en.DATAIN
-REn => read_data[6]~en.DATAIN
-REn => read_data[7]~en.DATAIN
-Addr[0] => mem~7.DATAIN
-Addr[0] => mem.WADDR
-Addr[0] => mem.RADDR
-Addr[1] => mem~6.DATAIN
-Addr[1] => mem.WADDR1
-Addr[1] => mem.RADDR1
-Addr[2] => mem~5.DATAIN
-Addr[2] => mem.WADDR2
-Addr[2] => mem.RADDR2
-Addr[3] => mem~4.DATAIN
-Addr[3] => mem.WADDR3
-Addr[3] => mem.RADDR3
-Addr[4] => mem~3.DATAIN
-Addr[4] => mem.WADDR4
-Addr[4] => mem.RADDR4
-Addr[5] => mem~2.DATAIN
-Addr[5] => mem.WADDR5
-Addr[5] => mem.RADDR5
-Addr[6] => mem~1.DATAIN
-Addr[6] => mem.WADDR6
-Addr[6] => mem.RADDR6
-Addr[7] => mem~0.DATAIN
-Addr[7] => mem.WADDR7
-Addr[7] => mem.RADDR7
-data_in[0] => mem~15.DATAIN
-data_in[0] => mem.DATAIN
-data_in[1] => mem~14.DATAIN
-data_in[1] => mem.DATAIN1
-data_in[2] => mem~13.DATAIN
-data_in[2] => mem.DATAIN2
-data_in[3] => mem~12.DATAIN
-data_in[3] => mem.DATAIN3
-data_in[4] => mem~11.DATAIN
-data_in[4] => mem.DATAIN4
-data_in[5] => mem~10.DATAIN
-data_in[5] => mem.DATAIN5
-data_in[6] => mem~9.DATAIN
-data_in[6] => mem.DATAIN6
-data_in[7] => mem~8.DATAIN
-data_in[7] => mem.DATAIN7
-data_out[0] <= read_data[0].DB_MAX_OUTPUT_PORT_TYPE
-data_out[1] <= read_data[1].DB_MAX_OUTPUT_PORT_TYPE
-data_out[2] <= read_data[2].DB_MAX_OUTPUT_PORT_TYPE
-data_out[3] <= read_data[3].DB_MAX_OUTPUT_PORT_TYPE
-data_out[4] <= read_data[4].DB_MAX_OUTPUT_PORT_TYPE
-data_out[5] <= read_data[5].DB_MAX_OUTPUT_PORT_TYPE
-data_out[6] <= read_data[6].DB_MAX_OUTPUT_PORT_TYPE
-data_out[7] <= read_data[7].DB_MAX_OUTPUT_PORT_TYPE
 
 

@@ -2,27 +2,27 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
  
-entity MaxDiff is
+entity MaxDiff_woMem is
 	port (
       start    : in  STD_LOGIC;
-      --Data    : in  STD_LOGIC_VECTOR(7 downto 0);
 		N_i : in STD_LOGIC_VECTOR (7 downto 0);
 		addr : in STD_LOGIC_VECTOR (7 downto 0);
 		clk : in STD_LOGIC;
-		reset : in STD_LOGIC;		
+		reset : in STD_LOGIC;	
+		data_from_mem : in STD_LOGIC_VECTOR (7 downto 0);	
 		  
-      debug_Diff    : out std_logic_vector(7 downto 0);
-		debug_data_fetched    : out std_logic_vector(7 downto 0);	
-		debug_count   : out std_logic_vector(7 downto 0);	
-		debug_writeSig : out STD_LOGIC;
+		
+		data_to_mem : out STD_LOGIC_VECTOR (7 downto 0);
+		addr_mem : out STD_LOGIC_VECTOR (7 downto 0);
+		REn : out STD_LOGIC;
+		WEn : out STD_LOGIC;
 		debug_ni : out STD_LOGIC;
 		done : out STD_LOGIC
    );
-end MaxDiff;
+end MaxDiff_woMem;
  
  
-architecture Behavioral of MaxDiff is
-
+architecture Behavioral of MaxDiff_woMem is
 
 	component DiffBehave is
 		Port (
@@ -36,16 +36,25 @@ architecture Behavioral of MaxDiff is
 		);
 	end component;
 	
-	component MemModule is
-    
-    port (
-        clk         : in  std_logic;
-        WEn          : in  std_logic;  
-        REn          : in  std_logic;  
-        Addr        : in  std_logic_vector(8-1 downto 0);
-        data_in     : in  std_logic_vector(8-1 downto 0);
-        data_out    : out std_logic_vector(8-1 downto 0)
-    );
+	
+		
+		component ControlUnit is
+	   Port ( 
+			start : in STD_LOGIC;
+			 clk : in STD_LOGIC;
+			 Diff_loaded : in STD_LOGIC;
+			 external_reset : in STD_LOGIC;
+			 N_i : in STD_LOGIC_VECTOR (7 downto 0);
+			
+			
+			 internal_reset : out STD_LOGIC;
+			 done_actual : out STD_LOGIC;
+			 debug_done_ni : out STD_LOGIC;
+			 count : out STD_LOGIC_VECTOR (7 downto 0);
+			 init : out STD_LOGIC;
+			 readSig : out STD_LOGIC;
+			 writeSig : out STD_LOGIC
+		);
 	end component;
 	
 	component DataHandler is
@@ -68,25 +77,6 @@ architecture Behavioral of MaxDiff is
 			data_fetched : out STD_LOGIC_VECTOR (7 downto 0)
 		);
 		end component;
-		
-		component ControlUnit is
-	   Port ( 
-			start : in STD_LOGIC;
-			 clk : in STD_LOGIC;
-			 Diff_loaded : in STD_LOGIC;
-			 external_reset : in STD_LOGIC;
-			 N_i : in STD_LOGIC_VECTOR (7 downto 0);
-			
-			
-			 internal_reset : out STD_LOGIC;
-			 done_actual : out STD_LOGIC;
-			 debug_done_ni : out STD_LOGIC;
-			 count : out STD_LOGIC_VECTOR (7 downto 0);
-			 init : out STD_LOGIC;
-			 readSig : out STD_LOGIC;
-			 writeSig : out STD_LOGIC
-		);
-	end component;
 	
 	signal Diff_l, go_init  : STD_LOGIC;
 	signal inter_reset  : STD_LOGIC;
@@ -101,12 +91,7 @@ architecture Behavioral of MaxDiff is
 		
 		Control: ControlUnit port map( start, clk, Diff_l, reset, N_i, inter_reset, done, debug_ni, count_buff, go_init, readB, writeB);
 		
-		Interface: DataHandler port map( clk, inter_reset, readB, writeB, count_buff, addr, data_Diff_Intf, data_mem_Intf, data_Intf_mem, REb, WEb, addr_buff, data_Intf_Diff);
+		Interface: DataHandler port map( clk, inter_reset, readB, writeB, count_buff, addr, data_Diff_Intf, data_from_mem, data_to_mem, REn, WEn, addr_mem, data_Intf_Diff);
 		
-		Mem: MemModule port map( clk, WEb, REb, addr_buff, data_Intf_mem, data_mem_Intf);
-  
-		debug_count <= count_buff;
-		debug_data_fetched <= data_Intf_Diff;
-		debug_Diff <= data_Diff_Intf;
-		debug_writeSig <= writeB;
+		
 end Behavioral;

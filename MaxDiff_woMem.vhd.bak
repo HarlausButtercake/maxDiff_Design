@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
  
-entity MaxDiff is
+entity MaxDiff_woMem is
 	port (
       start    : in  STD_LOGIC;
       --Data    : in  STD_LOGIC_VECTOR(7 downto 0);
@@ -18,10 +18,10 @@ entity MaxDiff is
 		debug_ni : out STD_LOGIC;
 		done : out STD_LOGIC
    );
-end MaxDiff;
+end MaxDiff_woMem;
  
  
-architecture Behavioral of MaxDiff is
+architecture Behavioral of MaxDiff_woMem is
 
 
 	component DiffBehave is
@@ -36,17 +36,7 @@ architecture Behavioral of MaxDiff is
 		);
 	end component;
 	
-	component MemModule is
-    
-    port (
-        clk         : in  std_logic;
-        WEn          : in  std_logic;  
-        REn          : in  std_logic;  
-        Addr        : in  std_logic_vector(8-1 downto 0);
-        data_in     : in  std_logic_vector(8-1 downto 0);
-        data_out    : out std_logic_vector(8-1 downto 0)
-    );
-	end component;
+	
 	
 	component DataHandler is
 		Port (
@@ -103,7 +93,7 @@ architecture Behavioral of MaxDiff is
 		
 		Interface: DataHandler port map( clk, inter_reset, readB, writeB, count_buff, addr, data_Diff_Intf, data_mem_Intf, data_Intf_mem, REb, WEb, addr_buff, data_Intf_Diff);
 		
-		Mem: MemModule port map( clk, WEb, REb, addr_buff, data_Intf_mem, data_mem_Intf);
+		
   
 		debug_count <= count_buff;
 		debug_data_fetched <= data_Intf_Diff;

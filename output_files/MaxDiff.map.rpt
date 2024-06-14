@@ -1,5 +1,5 @@
 Analysis & Synthesis report for MaxDiff
-Fri Jun 14 22:57:19 2024
+Sat Jun 15 00:26:04 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -14,11 +14,9 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. User-Specified and Inferred Latches
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: MemModule:Mem
- 13. Analysis & Synthesis Messages
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -45,13 +43,13 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                 ;
 +-----------------------------+------------------------------------------------+
-; Analysis & Synthesis Status ; Successful - Fri Jun 14 22:57:19 2024          ;
+; Analysis & Synthesis Status ; Successful - Sat Jun 15 00:26:04 2024          ;
 ; Quartus Prime Version       ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name               ; MaxDiff                                        ;
-; Top-level Entity Name       ; MaxDiff                                        ;
+; Top-level Entity Name       ; MaxDiff_woMem                                  ;
 ; Family                      ; MAX V                                          ;
-; Total logic elements        ; 3,827                                          ;
-; Total pins                  ; 44                                             ;
+; Total logic elements        ; 128                                            ;
+; Total pins                  ; 47                                             ;
 ; Total virtual pins          ; 0                                              ;
 ; UFM blocks                  ; 0 / 1 ( 0 % )                                  ;
 +-----------------------------+------------------------------------------------+
@@ -62,7 +60,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------------------------------+--------------------+--------------------+
 ; Option                                                           ; Setting            ; Default Value      ;
 +------------------------------------------------------------------+--------------------+--------------------+
-; Top-level entity name                                            ; MaxDiff            ; MaxDiff            ;
+; Top-level entity name                                            ; MaxDiff_woMem      ; MaxDiff            ;
 ; Family name                                                      ; MAX V              ; Cyclone V          ;
 ; Use smart compilation                                            ; Off                ; Off                ;
 ; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
@@ -143,18 +141,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                 ;
-+----------------------------------+-----------------+-----------------+---------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path          ; Library ;
-+----------------------------------+-----------------+-----------------+---------------------------------------+---------+
-; NIterator.vhd                    ; yes             ; User VHDL File  ; D:/proj_clone/maxDiff/NIterator.vhd   ;         ;
-; MemModule.vhd                    ; yes             ; User VHDL File  ; D:/proj_clone/maxDiff/MemModule.vhd   ;         ;
-; MaxDiff.vhd                      ; yes             ; User VHDL File  ; D:/proj_clone/maxDiff/MaxDiff.vhd     ;         ;
-; DiffBehave.vhd                   ; yes             ; User VHDL File  ; D:/proj_clone/maxDiff/DiffBehave.vhd  ;         ;
-; DataHandler.vhd                  ; yes             ; User VHDL File  ; D:/proj_clone/maxDiff/DataHandler.vhd ;         ;
-; ControlUnit.vhd                  ; yes             ; User VHDL File  ; D:/proj_clone/maxDiff/ControlUnit.vhd ;         ;
-+----------------------------------+-----------------+-----------------+---------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                   ;
++----------------------------------+-----------------+-----------------+-----------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path            ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------+---------+
+; NIterator.vhd                    ; yes             ; User VHDL File  ; D:/proj_clone/maxDiff/NIterator.vhd     ;         ;
+; DiffBehave.vhd                   ; yes             ; User VHDL File  ; D:/proj_clone/maxDiff/DiffBehave.vhd    ;         ;
+; DataHandler.vhd                  ; yes             ; User VHDL File  ; D:/proj_clone/maxDiff/DataHandler.vhd   ;         ;
+; ControlUnit.vhd                  ; yes             ; User VHDL File  ; D:/proj_clone/maxDiff/ControlUnit.vhd   ;         ;
+; MaxDiff_woMem.vhd                ; yes             ; User VHDL File  ; D:/proj_clone/maxDiff/MaxDiff_woMem.vhd ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -162,48 +159,47 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Total logic elements                        ; 3827  ;
-;     -- Combinational with no register       ; 1725  ;
-;     -- Register only                        ; 2056  ;
-;     -- Combinational with a register        ; 46    ;
+; Total logic elements                        ; 128   ;
+;     -- Combinational with no register       ; 75    ;
+;     -- Register only                        ; 18    ;
+;     -- Combinational with a register        ; 35    ;
 ;                                             ;       ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 1393  ;
-;     -- 3 input functions                    ; 321   ;
-;     -- 2 input functions                    ; 35    ;
-;     -- 1 input functions                    ; 22    ;
-;     -- 0 input functions                    ; 0     ;
+;     -- 4 input functions                    ; 1     ;
+;     -- 3 input functions                    ; 66    ;
+;     -- 2 input functions                    ; 33    ;
+;     -- 1 input functions                    ; 2     ;
+;     -- 0 input functions                    ; 8     ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 3757  ;
-;     -- arithmetic mode                      ; 70    ;
+;     -- normal mode                          ; 54    ;
+;     -- arithmetic mode                      ; 74    ;
 ;     -- qfbk mode                            ; 0     ;
 ;     -- register cascade mode                ; 0     ;
 ;     -- synchronous clear/load mode          ; 8     ;
-;     -- asynchronous clear/load mode         ; 28    ;
+;     -- asynchronous clear/load mode         ; 36    ;
 ;                                             ;       ;
-; Total registers                             ; 2102  ;
-; Total logic cells in carry chains           ; 80    ;
-; I/O pins                                    ; 44    ;
+; Total registers                             ; 53    ;
+; Total logic cells in carry chains           ; 85    ;
+; I/O pins                                    ; 47    ;
 ; Maximum fan-out node                        ; clk   ;
-; Maximum fan-out                             ; 2102  ;
-; Total fan-out                               ; 12942 ;
-; Average fan-out                             ; 3.34  ;
+; Maximum fan-out                             ; 53    ;
+; Total fan-out                               ; 461   ;
+; Average fan-out                             ; 2.63  ;
 +---------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                      ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                       ; Entity Name ; Library Name ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------+-------------+--------------+
-; |MaxDiff                   ; 3827 (0)    ; 2102         ; 0          ; 44   ; 0            ; 1725 (0)     ; 2056 (0)          ; 46 (0)           ; 80 (0)          ; 0 (0)      ; |MaxDiff                                  ; MaxDiff     ; work         ;
-;    |ControlUnit:Control|   ; 60 (3)      ; 9            ; 0          ; 0    ; 0            ; 51 (2)       ; 0 (0)             ; 9 (1)            ; 48 (0)          ; 0 (0)      ; |MaxDiff|ControlUnit:Control              ; ControlUnit ; work         ;
-;       |NIterator:NI|       ; 57 (57)     ; 8            ; 0          ; 0    ; 0            ; 49 (49)      ; 0 (0)             ; 8 (8)            ; 48 (48)         ; 0 (0)      ; |MaxDiff|ControlUnit:Control|NIterator:NI ; NIterator   ; work         ;
-;    |DataHandler:Interface| ; 18 (18)     ; 18           ; 0          ; 0    ; 0            ; 0 (0)        ; 9 (9)             ; 9 (9)            ; 8 (8)           ; 0 (0)      ; |MaxDiff|DataHandler:Interface            ; DataHandler ; work         ;
-;    |DiffBehave:CalDiff|    ; 44 (44)     ; 18           ; 0          ; 0    ; 0            ; 26 (26)      ; 16 (16)           ; 2 (2)            ; 24 (24)         ; 0 (0)      ; |MaxDiff|DiffBehave:CalDiff               ; DiffBehave  ; work         ;
-;    |MemModule:Mem|         ; 3705 (3705) ; 2057         ; 0          ; 0    ; 0            ; 1648 (1648)  ; 2031 (2031)       ; 26 (26)          ; 0 (0)           ; 0 (0)      ; |MaxDiff|MemModule:Mem                    ; MemModule   ; work         ;
-+----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------+-------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                              ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------+---------------+--------------+
+; Compilation Hierarchy Node ; Logic Cells ; LC Registers ; UFM Blocks ; Pins ; Virtual Pins ; LUT-Only LCs ; Register-Only LCs ; LUT/Register LCs ; Carry Chain LCs ; Packed LCs ; Full Hierarchy Name                             ; Entity Name   ; Library Name ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------+---------------+--------------+
+; |MaxDiff_woMem             ; 128 (0)     ; 53           ; 0          ; 47   ; 0            ; 75 (0)       ; 18 (0)            ; 35 (0)           ; 85 (0)          ; 0 (0)      ; |MaxDiff_woMem                                  ; MaxDiff_woMem ; work         ;
+;    |ControlUnit:Control|   ; 66 (4)      ; 9            ; 0          ; 0    ; 0            ; 57 (3)       ; 0 (0)             ; 9 (1)            ; 53 (0)          ; 0 (0)      ; |MaxDiff_woMem|ControlUnit:Control              ; ControlUnit   ; work         ;
+;       |NIterator:NI|       ; 62 (62)     ; 8            ; 0          ; 0    ; 0            ; 54 (54)      ; 0 (0)             ; 8 (8)            ; 53 (53)         ; 0 (0)      ; |MaxDiff_woMem|ControlUnit:Control|NIterator:NI ; NIterator     ; work         ;
+;    |DataHandler:Interface| ; 26 (26)     ; 26           ; 0          ; 0    ; 0            ; 0 (0)        ; 2 (2)             ; 24 (24)          ; 16 (16)         ; 0 (0)      ; |MaxDiff_woMem|DataHandler:Interface            ; DataHandler   ; work         ;
+;    |DiffBehave:CalDiff|    ; 36 (36)     ; 18           ; 0          ; 0    ; 0            ; 18 (18)      ; 16 (16)           ; 2 (2)            ; 16 (16)         ; 0 (0)      ; |MaxDiff_woMem|DiffBehave:CalDiff               ; DiffBehave    ; work         ;
++----------------------------+-------------+--------------+------------+------+--------------+--------------+-------------------+------------------+-----------------+------------+-------------------------------------------------+---------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -225,63 +221,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+-----------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                      ;
-+---------------------------------------------+-------------------------------------------+
-; Register name                               ; Reason for Removal                        ;
-+---------------------------------------------+-------------------------------------------+
-; DataHandler:Interface|mem_data_to_mem[0]~en ; Lost fanout                               ;
-; DataHandler:Interface|mem_data_to_mem[1]~en ; Lost fanout                               ;
-; DataHandler:Interface|mem_data_to_mem[2]~en ; Lost fanout                               ;
-; DataHandler:Interface|mem_data_to_mem[3]~en ; Lost fanout                               ;
-; DataHandler:Interface|mem_data_to_mem[4]~en ; Lost fanout                               ;
-; DataHandler:Interface|mem_data_to_mem[5]~en ; Lost fanout                               ;
-; DataHandler:Interface|mem_data_to_mem[6]~en ; Lost fanout                               ;
-; DataHandler:Interface|mem_data_to_mem[7]~en ; Lost fanout                               ;
-; MemModule:Mem|read_data[1]~en               ; Merged with MemModule:Mem|read_data[0]~en ;
-; MemModule:Mem|read_data[2]~en               ; Merged with MemModule:Mem|read_data[0]~en ;
-; MemModule:Mem|read_data[3]~en               ; Merged with MemModule:Mem|read_data[0]~en ;
-; MemModule:Mem|read_data[4]~en               ; Merged with MemModule:Mem|read_data[0]~en ;
-; MemModule:Mem|read_data[5]~en               ; Merged with MemModule:Mem|read_data[0]~en ;
-; MemModule:Mem|read_data[6]~en               ; Merged with MemModule:Mem|read_data[0]~en ;
-; MemModule:Mem|read_data[7]~en               ; Merged with MemModule:Mem|read_data[0]~en ;
-; Total Number of Removed Registers = 15      ;                                           ;
-+---------------------------------------------+-------------------------------------------+
-
-
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2102  ;
+; Total registers                              ; 53    ;
 ; Number of registers using Synchronous Clear  ; 8     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 28    ;
+; Number of registers using Asynchronous Clear ; 36    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 2088  ;
+; Number of registers using Clock Enable       ; 48    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |MaxDiff|ControlUnit:Control|NIterator:NI|count_reg[0] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------+
-
-
-+------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: MemModule:Mem ;
-+----------------+-------+-----------------------------------+
-; Parameter Name ; Value ; Type                              ;
-+----------------+-------+-----------------------------------+
-; ADDR_WIDTH     ; 8     ; Signed Integer                    ;
-; DATA_WIDTH     ; 8     ; Signed Integer                    ;
-+----------------+-------+-----------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |MaxDiff_woMem|ControlUnit:Control|NIterator:NI|count_reg[7] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -290,7 +251,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Fri Jun 14 22:57:10 2024
+    Info: Processing started: Sat Jun 15 00:25:56 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off MaxDiff -c MaxDiff
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -304,7 +265,7 @@ Info (12021): Found 2 design units, including 1 entities, in source file maxdiff
     Info (12022): Found design unit 1: MaxDiff_TB-TB_ARCH File: D:/proj_clone/maxDiff/MaxDiff_TB.vhd Line: 8
     Info (12023): Found entity 1: MaxDiff_TB File: D:/proj_clone/maxDiff/MaxDiff_TB.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file maxdiff.vhd
-    Info (12022): Found design unit 1: MaxDiff-Behavioral File: D:/proj_clone/maxDiff/MaxDiff.vhd Line: 22
+    Info (12022): Found design unit 1: MaxDiff-Behavioral File: D:/proj_clone/maxDiff/MaxDiff.vhd Line: 24
     Info (12023): Found entity 1: MaxDiff File: D:/proj_clone/maxDiff/MaxDiff.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file diffbehave.vhd
     Info (12022): Found design unit 1: DiffBehave-Behavioral File: D:/proj_clone/maxDiff/DiffBehave.vhd Line: 17
@@ -313,12 +274,15 @@ Info (12021): Found 2 design units, including 1 entities, in source file datahan
     Info (12022): Found design unit 1: DataHandler-Behavioral File: D:/proj_clone/maxDiff/DataHandler.vhd Line: 29
     Info (12023): Found entity 1: DataHandler File: D:/proj_clone/maxDiff/DataHandler.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file controlunit.vhd
-    Info (12022): Found design unit 1: ControlUnit-Behavioral File: D:/proj_clone/maxDiff/ControlUnit.vhd Line: 23
+    Info (12022): Found design unit 1: ControlUnit-Behavioral File: D:/proj_clone/maxDiff/ControlUnit.vhd Line: 24
     Info (12023): Found entity 1: ControlUnit File: D:/proj_clone/maxDiff/ControlUnit.vhd Line: 5
-Info (12127): Elaborating entity "MaxDiff" for the top level hierarchy
-Info (12128): Elaborating entity "DiffBehave" for hierarchy "DiffBehave:CalDiff" File: D:/proj_clone/maxDiff/MaxDiff.vhd Line: 97
-Info (12128): Elaborating entity "ControlUnit" for hierarchy "ControlUnit:Control" File: D:/proj_clone/maxDiff/MaxDiff.vhd Line: 99
-Info (12128): Elaborating entity "NIterator" for hierarchy "ControlUnit:Control|NIterator:NI" File: D:/proj_clone/maxDiff/ControlUnit.vhd Line: 62
+Info (12021): Found 2 design units, including 1 entities, in source file maxdiff_womem.vhd
+    Info (12022): Found design unit 1: MaxDiff_woMem-Behavioral File: D:/proj_clone/maxDiff/MaxDiff_woMem.vhd Line: 25
+    Info (12023): Found entity 1: MaxDiff_woMem File: D:/proj_clone/maxDiff/MaxDiff_woMem.vhd Line: 5
+Info (12127): Elaborating entity "MaxDiff_woMem" for the top level hierarchy
+Info (12128): Elaborating entity "DiffBehave" for hierarchy "DiffBehave:CalDiff" File: D:/proj_clone/maxDiff/MaxDiff_woMem.vhd Line: 90
+Info (12128): Elaborating entity "ControlUnit" for hierarchy "ControlUnit:Control" File: D:/proj_clone/maxDiff/MaxDiff_woMem.vhd Line: 92
+Info (12128): Elaborating entity "NIterator" for hierarchy "ControlUnit:Control|NIterator:NI" File: D:/proj_clone/maxDiff/ControlUnit.vhd Line: 65
 Info (10041): Inferred latch for "count[0]" at NIterator.vhd(45) File: D:/proj_clone/maxDiff/NIterator.vhd Line: 45
 Info (10041): Inferred latch for "count[1]" at NIterator.vhd(45) File: D:/proj_clone/maxDiff/NIterator.vhd Line: 45
 Info (10041): Inferred latch for "count[2]" at NIterator.vhd(45) File: D:/proj_clone/maxDiff/NIterator.vhd Line: 45
@@ -327,36 +291,16 @@ Info (10041): Inferred latch for "count[4]" at NIterator.vhd(45) File: D:/proj_c
 Info (10041): Inferred latch for "count[5]" at NIterator.vhd(45) File: D:/proj_clone/maxDiff/NIterator.vhd Line: 45
 Info (10041): Inferred latch for "count[6]" at NIterator.vhd(45) File: D:/proj_clone/maxDiff/NIterator.vhd Line: 45
 Info (10041): Inferred latch for "count[7]" at NIterator.vhd(45) File: D:/proj_clone/maxDiff/NIterator.vhd Line: 45
-Info (12128): Elaborating entity "DataHandler" for hierarchy "DataHandler:Interface" File: D:/proj_clone/maxDiff/MaxDiff.vhd Line: 101
+Info (12128): Elaborating entity "DataHandler" for hierarchy "DataHandler:Interface" File: D:/proj_clone/maxDiff/MaxDiff_woMem.vhd Line: 94
 Warning (10036): Verilog HDL or VHDL warning at DataHandler.vhd(32): object "fetched_reg" assigned a value but never read File: D:/proj_clone/maxDiff/DataHandler.vhd Line: 32
-Info (12128): Elaborating entity "MemModule" for hierarchy "MemModule:Mem" File: D:/proj_clone/maxDiff/MaxDiff.vhd Line: 103
-Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13049): Converted tri-state buffer "DataHandler:Interface|mem_data_to_mem[0]" feeding internal logic into a wire File: D:/proj_clone/maxDiff/DataHandler.vhd Line: 40
-    Warning (13049): Converted tri-state buffer "DataHandler:Interface|mem_data_to_mem[1]" feeding internal logic into a wire File: D:/proj_clone/maxDiff/DataHandler.vhd Line: 40
-    Warning (13049): Converted tri-state buffer "DataHandler:Interface|mem_data_to_mem[2]" feeding internal logic into a wire File: D:/proj_clone/maxDiff/DataHandler.vhd Line: 40
-    Warning (13049): Converted tri-state buffer "DataHandler:Interface|mem_data_to_mem[3]" feeding internal logic into a wire File: D:/proj_clone/maxDiff/DataHandler.vhd Line: 40
-    Warning (13049): Converted tri-state buffer "DataHandler:Interface|mem_data_to_mem[4]" feeding internal logic into a wire File: D:/proj_clone/maxDiff/DataHandler.vhd Line: 40
-    Warning (13049): Converted tri-state buffer "DataHandler:Interface|mem_data_to_mem[5]" feeding internal logic into a wire File: D:/proj_clone/maxDiff/DataHandler.vhd Line: 40
-    Warning (13049): Converted tri-state buffer "DataHandler:Interface|mem_data_to_mem[6]" feeding internal logic into a wire File: D:/proj_clone/maxDiff/DataHandler.vhd Line: 40
-    Warning (13049): Converted tri-state buffer "DataHandler:Interface|mem_data_to_mem[7]" feeding internal logic into a wire File: D:/proj_clone/maxDiff/DataHandler.vhd Line: 40
-Warning (13046): Tri-state node(s) do not directly drive top-level pin(s)
-    Warning (13047): Converted the fan-out from the tri-state buffer "MemModule:Mem|data_out[0]" to the node "DiffBehave:CalDiff|min[0]" into an OR gate File: D:/proj_clone/maxDiff/MemModule.vhd Line: 16
-    Warning (13047): Converted the fan-out from the tri-state buffer "MemModule:Mem|data_out[1]" to the node "DiffBehave:CalDiff|min[1]" into an OR gate File: D:/proj_clone/maxDiff/MemModule.vhd Line: 16
-    Warning (13047): Converted the fan-out from the tri-state buffer "MemModule:Mem|data_out[2]" to the node "DiffBehave:CalDiff|min[2]" into an OR gate File: D:/proj_clone/maxDiff/MemModule.vhd Line: 16
-    Warning (13047): Converted the fan-out from the tri-state buffer "MemModule:Mem|data_out[3]" to the node "DiffBehave:CalDiff|min[3]" into an OR gate File: D:/proj_clone/maxDiff/MemModule.vhd Line: 16
-    Warning (13047): Converted the fan-out from the tri-state buffer "MemModule:Mem|data_out[4]" to the node "DiffBehave:CalDiff|min[4]" into an OR gate File: D:/proj_clone/maxDiff/MemModule.vhd Line: 16
-    Warning (13047): Converted the fan-out from the tri-state buffer "MemModule:Mem|data_out[5]" to the node "DiffBehave:CalDiff|min[5]" into an OR gate File: D:/proj_clone/maxDiff/MemModule.vhd Line: 16
-    Warning (13047): Converted the fan-out from the tri-state buffer "MemModule:Mem|data_out[6]" to the node "DiffBehave:CalDiff|min[6]" into an OR gate File: D:/proj_clone/maxDiff/MemModule.vhd Line: 16
-    Warning (13047): Converted the fan-out from the tri-state buffer "MemModule:Mem|data_out[7]" to the node "DiffBehave:CalDiff|min[7]" into an OR gate File: D:/proj_clone/maxDiff/MemModule.vhd Line: 16
-Info (17049): 8 registers lost all their fanouts during netlist optimizations.
-Info (21057): Implemented 3871 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 19 input pins
-    Info (21059): Implemented 25 output pins
-    Info (21061): Implemented 3827 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
-    Info: Peak virtual memory: 4784 megabytes
-    Info: Processing ended: Fri Jun 14 22:57:19 2024
-    Info: Elapsed time: 00:00:09
+Info (21057): Implemented 175 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 27 input pins
+    Info (21059): Implemented 20 output pins
+    Info (21061): Implemented 128 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4766 megabytes
+    Info: Processing ended: Sat Jun 15 00:26:04 2024
+    Info: Elapsed time: 00:00:08
     Info: Total CPU time (on all processors): 00:00:20
 
 

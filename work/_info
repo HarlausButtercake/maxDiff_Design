@@ -9,7 +9,7 @@ z2
 cModel Technology
 dD:/modsim
 Econtrolunit
-Z0 w1718380435
+Z0 w1718384416
 Z1 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 Z2 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z3 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
@@ -18,13 +18,13 @@ Z5 8D:/proj_clone/maxDiff/ControlUnit.vhd
 Z6 FD:/proj_clone/maxDiff/ControlUnit.vhd
 l0
 L5
-VoOAFAm]gBVPJI<IjjAL9i1
-!s100 SV0130;fSn1zoI:Si4GKQ0
+VJ;HK^Cl<=KRR7I1>;kLUB1
+!s100 4UJ^YM2QJYBez<]8:i8;B0
 Z7 OV;C;10.5b;63
 32
-Z8 !s110 1718380645
+Z8 !s110 1718384590
 !i10b 1
-Z9 !s108 1718380645.000000
+Z9 !s108 1718384590.000000
 Z10 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/proj_clone/maxDiff/ControlUnit.vhd|
 Z11 !s107 D:/proj_clone/maxDiff/ControlUnit.vhd|
 !i113 1
@@ -34,11 +34,11 @@ Abehavioral
 R1
 R2
 R3
-DEx4 work 11 controlunit 0 22 oOAFAm]gBVPJI<IjjAL9i1
-l40
-L23
-VZXk2bFA:O_gWISEVHadJD3
-!s100 ga[3W>mFmQLQ[KOOLBlhz2
+DEx4 work 11 controlunit 0 22 J;HK^Cl<=KRR7I1>;kLUB1
+l41
+L24
+V1=HYZMNehaeKe3^h0Cl^]3
+!s100 KMS7Z1HcDi9FU`kW87m0?0
 R7
 32
 R8
@@ -132,7 +132,7 @@ R23
 R12
 R13
 Emaxdiff
-Z24 w1718380209
+Z24 w1718384244
 R1
 R2
 R3
@@ -141,8 +141,8 @@ Z25 8D:/proj_clone/maxDiff/MaxDiff.vhd
 Z26 FD:/proj_clone/maxDiff/MaxDiff.vhd
 l0
 L5
-V=RHcMZge?3]:h3O?gOJBR2
-!s100 BhC`8UH2zC_:4jOAZ2^h11
+V2l[hNRO<8N8Kd3f;R`>`23
+!s100 z3b7AA:X99ShAEiof2[1=2
 R7
 32
 R8
@@ -157,11 +157,11 @@ Abehavioral
 R1
 R2
 R3
-Z29 DEx4 work 7 maxdiff 0 22 =RHcMZge?3]:h3O?gOJBR2
-l95
-L22
-VQ[Fia@CX>TKZGg4=KOKZo3
-!s100 :loHX17lED5K^o@2l_hIK0
+Z29 DEx4 work 7 maxdiff 0 22 2l[hNRO<8N8Kd3f;R`>`23
+l98
+L24
+V?DM4760Z[<jii`f64ULa_3
+!s100 OG>3Hl<M94o?PH<TbI=P;1
 R7
 32
 R8
@@ -173,7 +173,7 @@ R28
 R12
 R13
 Emaxdiff_tb
-Z30 w1718380630
+Z30 w1718384346
 R1
 R2
 R3
@@ -200,10 +200,10 @@ R1
 R2
 R3
 DEx4 work 10 maxdiff_tb 0 22 Z9e8BFYK;g5ZP5=f3dCkh2
-l23
+l25
 L8
-VL=4bS7c=cl::mWcj0[gWl1
-!s100 i]Sm`K;Ig2O<M<VzYXJ2U1
+V9Ld<ea0VMkQiD_WS9LF;C0
+!s100 fTeTaAl2B;UM_llA6^E8V3
 R7
 32
 R8
@@ -215,7 +215,7 @@ R34
 R12
 R13
 Ememmodule
-Z35 w1718378193
+Z35 w1718382682
 R1
 R2
 R3
@@ -228,11 +228,11 @@ V_z_Fe;2D<h3c^^Gb2[1kR3
 !s100 6PN4k0m@6V879KKbYJcC62
 R7
 32
-Z38 !s110 1718380646
+R8
 !i10b 1
 R9
-Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/proj_clone/maxDiff/MemModule.vhd|
-Z40 !s107 D:/proj_clone/maxDiff/MemModule.vhd|
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/proj_clone/maxDiff/MemModule.vhd|
+Z39 !s107 D:/proj_clone/maxDiff/MemModule.vhd|
 !i113 1
 R12
 R13
@@ -240,29 +240,29 @@ Abehavioral
 R1
 R2
 R3
-Z41 DEx4 work 9 memmodule 0 22 _z_Fe;2D<h3c^^Gb2[1kR3
+Z40 DEx4 work 9 memmodule 0 22 _z_Fe;2D<h3c^^Gb2[1kR3
 l38
 L20
-Z42 VdfEST?82z5;aXg7h@5d4e2
-Z43 !s100 zom>[FfO^G9bCS7?fYjce0
+Z41 VdfEST?82z5;aXg7h@5d4e2
+Z42 !s100 zom>[FfO^G9bCS7?fYjce0
 R7
 32
-R38
+R8
 !i10b 1
 R9
+R38
 R39
-R40
 !i113 1
 R12
 R13
 Eniterator
-Z44 w1718379599
+Z43 w1718384522
 R1
 R2
 R3
 R4
-Z45 8D:/proj_clone/maxDiff/NIterator.vhd
-Z46 FD:/proj_clone/maxDiff/NIterator.vhd
+Z44 8D:/proj_clone/maxDiff/NIterator.vhd
+Z45 FD:/proj_clone/maxDiff/NIterator.vhd
 l0
 L5
 VCg]LZT@@5oXR9EnW:nX5_2
@@ -272,8 +272,8 @@ R7
 R8
 !i10b 1
 R9
-Z47 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/proj_clone/maxDiff/NIterator.vhd|
-Z48 !s107 D:/proj_clone/maxDiff/NIterator.vhd|
+Z46 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|D:/proj_clone/maxDiff/NIterator.vhd|
+Z47 !s107 D:/proj_clone/maxDiff/NIterator.vhd|
 !i113 1
 R12
 R13
@@ -284,15 +284,15 @@ R3
 DEx4 work 9 niterator 0 22 Cg]LZT@@5oXR9EnW:nX5_2
 l23
 L20
-V8c]ODfKU@V<2@ED4[fjbU1
-!s100 @Y4<U29eS[83LAD6JIShN0
+VF;i>^CmDRa7@0@bBmA<3j0
+!s100 ?gQa9ezz=QkH18IO7O6Ih0
 R7
 32
 R8
 !i10b 1
 R9
+R46
 R47
-R48
 !i113 1
 R12
 R13

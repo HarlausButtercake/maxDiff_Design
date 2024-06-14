@@ -23,9 +23,9 @@ architecture Behavioral of MemModule is
     signal read_data : std_logic_vector(8-1 downto 0);
 	 --signal mem : mem_type := (others => (others => '0'));
 	 signal mem : mem_type := (
-        0 => "00010001",  -- Initializing address 0 with 1
-        1 => "00000010",  -- Initializing address 1 with 2
-        2 => "00000011",  -- Initializing address 2 with 3
+        0 => "00010001",  -- Initializing address 0 
+        1 => "00000010",  -- Initializing address 1 
+        2 => "00000011",  -- Initializing address 2 
         3 => "00000100",  
 		  4 => "00011100",
 		  5 => "00000100",

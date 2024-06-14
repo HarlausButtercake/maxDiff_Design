@@ -17,7 +17,9 @@ architecture TB_ARCH of MaxDiff_TB is
 		  
       signal debug_Diff    :  std_logic_vector(7 downto 0);		
 		signal debug_data_fetched    :  std_logic_vector(7 downto 0);
-		signal debug_count    :  std_logic_vector(7 downto 0);
+		signal debug_count    :  std_logic_vector(7 downto 0); 
+		signal debug_writeSig :  STD_LOGIC;
+		signal debug_ni :  STD_LOGIC;
 		signal done :  STD_LOGIC;
 
 begin
@@ -69,6 +71,10 @@ begin
 		  wait for CLOCK_PERIOD;
 		  wait for CLOCK_PERIOD;
 		  wait for CLOCK_PERIOD;
+		  
+		  start <= '1';
+        N_i <= "00000110";
+		  addr <= "00000000";
 		  wait for CLOCK_PERIOD;
 		  wait for CLOCK_PERIOD;
 		  wait for CLOCK_PERIOD;
@@ -79,7 +85,11 @@ begin
 		  wait for CLOCK_PERIOD;
 		  wait for CLOCK_PERIOD;
 		  wait for CLOCK_PERIOD;
-
+		 
+		  wait for CLOCK_PERIOD;
+		  wait for CLOCK_PERIOD;
+		  wait for CLOCK_PERIOD;
+		  wait for CLOCK_PERIOD;
         
 		  
 
@@ -98,7 +108,9 @@ begin
 				
 				debug_Diff => debug_Diff,  
 				debug_data_fetched => debug_data_fetched,		
-				debug_count =>   debug_count,
+				debug_count => debug_count,
+				debug_writeSig => debug_writeSig,
+				debug_ni => debug_ni,
 				done => done
         );
 
