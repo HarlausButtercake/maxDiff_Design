@@ -31,7 +31,7 @@ architecture Behavioral of MaxDiff is
         init    : in  std_logic;
         Data    : in  std_logic_vector(7 downto 0);
 		  
-		  Diff_loaded : out STD_LOGIC;
+		  --Diff_loaded : out STD_LOGIC;
         Diff    : out std_logic_vector(7 downto 0)
 		);
 	end component;
@@ -73,7 +73,7 @@ architecture Behavioral of MaxDiff is
 	   Port ( 
 			start : in STD_LOGIC;
 			 clk : in STD_LOGIC;
-			 Diff_loaded : in STD_LOGIC;
+			 --Diff_loaded : in STD_LOGIC;
 			 external_reset : in STD_LOGIC;
 			 N_i : in STD_LOGIC_VECTOR (7 downto 0);
 			
@@ -97,9 +97,9 @@ architecture Behavioral of MaxDiff is
    
 	begin
 	
-		CalDiff: DiffBehave port map( clk, inter_reset, go_init, data_Intf_Diff, Diff_l, data_Diff_Intf);
+		CalDiff: DiffBehave port map( clk, inter_reset, go_init, data_Intf_Diff,  data_Diff_Intf);
 		
-		Control: ControlUnit port map( start, clk, Diff_l, reset, N_i, inter_reset, done, debug_ni, count_buff, go_init, readB, writeB);
+		Control: ControlUnit port map( start, clk,  reset, N_i, inter_reset, done, debug_ni, count_buff, go_init, readB, writeB);
 		
 		Interface: DataHandler port map( clk, inter_reset, readB, writeB, count_buff, addr, data_Diff_Intf, data_mem_Intf, data_Intf_mem, REb, WEb, addr_buff, data_Intf_Diff);
 		

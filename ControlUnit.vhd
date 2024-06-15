@@ -6,7 +6,7 @@ entity ControlUnit is
     Port (
           start : in STD_LOGIC;
 			 clk : in STD_LOGIC;
-			 Diff_loaded : in STD_LOGIC;
+			 --Diff_loaded : in STD_LOGIC;
 			 external_reset : in STD_LOGIC;
 			 N_i : in STD_LOGIC_VECTOR (7 downto 0);
 			
@@ -35,8 +35,8 @@ architecture Behavioral of ControlUnit is
 			done : out STD_LOGIC
 		);
 	end component;
-	 signal  go_init, done_NI, read_buf, doneRead, inter_reset, done_buf, done_actual_buf : STD_LOGIC;
-	 --signal  read_buf : STD_LOGIC := '0';
+	 signal  go_init, done_NI, doneRead, inter_reset, done_buf, done_actual_buf, init_buf : STD_LOGIC;
+	 signal  Diff_loaded : STD_LOGIC;
 	 
 begin
 
@@ -45,20 +45,26 @@ begin
 	inter_reset <= (not start) or external_reset;
 	internal_reset <= inter_reset;
 	go_init <= start and (not Diff_loaded);
-	init <= go_init;
+	--init <= go_init;
 	
 	process(clk, inter_reset)
 		 begin
 			  if inter_reset = '1' then
 					done_buf <= '0';
-					
+					Diff_loaded <= '0';
 			  elsif rising_edge(clk) then
+					if init_buf = '1' then
+						Diff_loaded <= '1';
+					 end if;
+					init_buf <= go_init;
+					
 					done_buf <= done_NI;
 					
 			  end if;
 			  
 		 end process;
 		 --done_actual_buf <= done_buf;
+		 init <= init_buf;
 		done_actual <= done_buf;
 		debug_done_ni <= done_NI;
 		writeSig <= done_NI and start and (not done_buf);
