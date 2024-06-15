@@ -1,1 +1,1 @@
-All NECESSARY FILES CAN BE FOUND IN /TRIMMED
+All important files can be found in /TRIMMED
